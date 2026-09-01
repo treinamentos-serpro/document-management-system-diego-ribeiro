@@ -1,9 +1,6 @@
 const { randomUUID } = require('node:crypto');
-const fs = require('node:fs');
-const path = require('node:path');
 const documentsRepository = require('../repositories/documents.repository');
-
-const storageDirectory = path.resolve(__dirname, '../../storage');
+const storageService = require('./storage.service');
 
 function toPublicMetadata(document) {
   const { storedFilename, ...metadata } = document;
@@ -39,9 +36,9 @@ function getDocumentForDownload(id, owner) {
     return null;
   }
 
-  const filePath = path.resolve(storageDirectory, document.storedFilename);
+  const filePath = storageService.resolveFilePath(document.storedFilename);
 
-  if (!filePath.startsWith(`${storageDirectory}${path.sep}`) || !fs.existsSync(filePath)) {
+  if (!filePath || !storageService.fileExists(filePath)) {
     return null;
   }
 
