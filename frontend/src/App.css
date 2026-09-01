@@ -1,0 +1,247 @@
+:root {
+  color: #182020;
+  background: #f3f0e8;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #f3f0e8;
+  background-image: linear-gradient(90deg, rgba(24, 32, 32, 0.035) 1px, transparent 1px), linear-gradient(rgba(24, 32, 32, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.app-shell {
+  width: min(920px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3.5rem 0;
+}
+
+.app-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 540px;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 1.55rem;
+  font-weight: 500;
+}
+
+.eyebrow {
+  margin-bottom: 0.4rem;
+  color: #a43c1d;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.owner-field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 220px;
+  color: #4a5351;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+}
+
+.owner-field input {
+  width: 100%;
+  border: 1px solid #9ca4a0;
+  border-radius: 4px;
+  background: #fffdf8;
+  padding: 0.7rem 0.8rem;
+  color: #182020;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 1rem;
+}
+
+.panel {
+  border: 1px solid #aab1ac;
+  border-radius: 6px;
+  background: rgba(255, 253, 248, 0.88);
+  padding: 1.5rem;
+}
+
+.upload-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.file-picker {
+  display: grid;
+  gap: 0.6rem;
+  color: #4a5351;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+}
+
+.file-picker input {
+  max-width: 100%;
+}
+
+.file-picker strong {
+  overflow: hidden;
+  color: #182020;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upload-form button,
+.download-button {
+  border: 1px solid #a43c1d;
+  border-radius: 4px;
+  background: #a43c1d;
+  padding: 0.7rem 1rem;
+  color: #fffdf8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.upload-form button:hover:not(:disabled),
+.download-button:hover:not(:disabled) {
+  background: #7d2d16;
+}
+
+.list-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.count {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #ccd8cc;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+}
+
+.state-message {
+  margin-top: 2.4rem;
+  color: #5d6764;
+}
+
+.document-list {
+  display: grid;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.document-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #d8d8cf;
+  padding: 1rem 0;
+}
+
+.document-details {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.document-details strong,
+.document-details span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.document-details span {
+  color: #65706c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+}
+
+.download-button {
+  flex: 0 0 auto;
+  border-color: #526865;
+  background: #526865;
+}
+
+.download-button:hover:not(:disabled) {
+  background: #374c49;
+}
+
+.feedback {
+  margin: 1rem 0 0;
+  border-left: 4px solid #a43c1d;
+  background: #fffdf8;
+  padding: 0.8rem 1rem;
+}
+
+.feedback.success {
+  border-color: #3c735a;
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    padding: 2rem 0;
+  }
+
+  .app-header,
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header {
+    display: grid;
+    align-items: start;
+  }
+
+  .owner-field {
+    min-width: 0;
+  }
+}
